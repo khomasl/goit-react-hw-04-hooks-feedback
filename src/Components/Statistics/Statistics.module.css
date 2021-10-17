@@ -1,0 +1,34 @@
+.title {
+  margin-top: 15px;
+  margin-right: 210px;
+  background-color: lightpink;
+}
+.statistics {
+  width: 320px;
+  padding: 10px 0 10px 20px;
+  background-color: lightcyan;
+}
+
+.good {
+  margin-right: 250px;
+  background-color: lightgreen;
+}
+
+.bad {
+  margin-right: 250px;
+  background-color: lightcoral;
+}
+
+.total {
+  font-weight: 700;
+}
+
+.percentage {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.percentageP {
+  margin-right: 150px;
+  background-color: lightpink;
+}
