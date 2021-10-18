@@ -1,53 +1,41 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import './App.css'
 import { Section } from './Components/Section/Section'
 
-class App extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  }
+export default function App() {
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
-  handleLeaveFeedback = (e) => {
+  const handleLeaveFeedback = (e) => {
     const btnName = e.target.name
-    this.setState((state) => {
-      const value =
-        btnName === 'good'
-          ? state.good
-          : btnName === 'neutral'
-          ? state.neutral
-          : state.bad
-      return { [btnName]: value + 1 }
-    })
+    btnName === 'good'
+      ? setGood(good + 1)
+      : btnName === 'neutral'
+      ? setNeutral(neutral + 1)
+      : setBad(bad + 1)
   }
 
-  countTotalFeedback = () =>
-    this.state.good + this.state.neutral + this.state.bad
+  const countTotalFeedback = good + neutral + bad
 
-  countPositiveFeedbackPercentage = () =>
-    this.countTotalFeedback() !== 0
-      ? ((this.state.good * 100) / this.countTotalFeedback()).toFixed(0)
+  const countPositiveFeedbackPercentage = () =>
+    countTotalFeedback !== 0
+      ? ((good * 100) / countTotalFeedback).toFixed(0)
       : ''
 
-  render() {
-    const feedback = this.state
-    const options = {
-      good: feedback.good,
-      neutral: feedback.neutral,
-      bad: feedback.bad,
-      total: this.countTotalFeedback(),
-      positiveFeedback: this.countPositiveFeedbackPercentage(),
-      handleLeaveFeedback: this.handleLeaveFeedback,
-    }
-
-    return (
-      <div className="App">
-        <h1>React-hw-02-Feedback</h1>
-        <Section title="Please leave feedback" options={options} />
-      </div>
-    )
+  const options = {
+    good,
+    neutral,
+    bad,
+    total: countTotalFeedback,
+    positiveFeedback: countPositiveFeedbackPercentage(),
+    handleLeaveFeedback,
   }
-}
 
-export default App
+  return (
+    <div className="App">
+      <h1>hw-04-Hooks-Feedback</h1>
+      <Section title="Please leave feedback" options={options} />
+    </div>
+  )
+}

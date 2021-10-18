@@ -29,9 +29,9 @@ function StatisticsShow({ options }) {
       <p>
         Total: <span className={s.total}>{total}</span>
       </p>
-      <p className={s.percentageP}>
+      <p className={s.percentage}>
         Positive feedback:{' '}
-        <span className={s.percentage}>{positiveFeedback}%</span>
+        <span className={s.percentageS}>{positiveFeedback}%</span>
       </p>
     </>
   )

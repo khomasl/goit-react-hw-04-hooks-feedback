@@ -23,12 +23,12 @@
   font-weight: 700;
 }
 
-.percentage {
+.percentageS {
   font-style: italic;
   font-weight: 700;
 }
 
-.percentageP {
-  margin-right: 150px;
+.percentage {
+  margin-right: 140px;
   background-color: lightpink;
 }
